@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>調閱日治時期土地資料的經驗分享 — 陳薇珊 Wei-Shan Chen</title>
+<meta name="description" content="兩條路徑、四個步驟，把日治時期的「日據時期登記簿」與「台帳」順利申請到手。含臺北市町名／大字對照表與從碩論期間累積的實戰經驗。">
+<meta name="author" content="陳薇珊 Wei-Shan Chen">
+<meta property="og:title" content="調閱日治時期土地資料的經驗分享">
+<meta property="og:description" content="兩條路徑、四個步驟，把日治時期的「日據時期登記簿」與「台帳」順利申請到手。從碩論期間累積出來的整理筆記。">
+<meta property="og:url" content="https://wschtw.com/notes/japanese-era-land-records">
+<link rel="canonical" href="https://wschtw.com/notes/japanese-era-land-records">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#2B6A7C;
+  --primary-light:#4A9BAD;
+  --accent:#6CC4B0;
+  --accent-soft:#E8F5F0;
+  --bg:#F5F0E8;
+  --gray:#EDE8DF;
+  --text:#2C3E3E;
+  --light-text:#6B8585;
+  --warn:#C8956D;
+  --warn-soft:#FBF3E9;
+  --card-shadow:0 1px 16px rgba(43,106,124,.05);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+@font-face{font-family:'jf-openhuninn';src:url('./fonts/jf-openhuninn-2.1.ttf') format('truetype')}
+body{font-family:'jf-openhuninn','Noto Sans TC',system-ui,sans-serif;color:var(--text);line-height:1.85;background:var(--bg)}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(43,106,124,.92);backdrop-filter:blur(12px);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,3rem);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(43,106,124,.15)}
+nav .logo{color:#fff;font-weight:700;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
+nav .logo a{color:#fff;text-decoration:none}
+nav .links{display:flex;gap:.15rem}
+nav .links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.74rem;font-weight:500;padding:.4rem .7rem;border-radius:6px;transition:all .2s;letter-spacing:.8px}
+nav .links a:hover,nav .links a.active{color:#fff;background:rgba(255,255,255,.1)}
+@media(max-width:768px){nav .links{display:none}}
+
+/* HERO (緊湊版，文章用) */
+.article-hero{min-height:62vh;display:flex;align-items:flex-end;background:linear-gradient(160deg,#2B6A7C 0%,#3D7A8A 50%,#4A8A96 100%);color:#fff;padding:8rem 2rem 3.5rem;position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;opacity:.13;background-image:url('./images/building-footprints.svg');background-size:cover;background-position:center;pointer-events:none}
+.article-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(180deg,transparent,#D4EEF3);pointer-events:none}
+.article-hero-inner{max-width:880px;margin:0 auto;width:100%;position:relative;z-index:1}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A8E0D0;margin-bottom:.8rem}
+.article-hero h1{font-size:clamp(1.8rem,4.2vw,2.6rem);font-weight:700;line-height:1.3;margin-bottom:1rem}
+.article-hero .lead{font-size:clamp(.9rem,1.55vw,1.02rem);line-height:1.75;opacity:.92;max-width:680px;margin-bottom:1.5rem}
+.article-meta{display:flex;flex-wrap:wrap;gap:1.2rem;font-size:.78rem;opacity:.8}
+.article-meta span{display:flex;align-items:center;gap:.4rem}
+.back-link{position:absolute;top:5.5rem;left:max(2rem,calc(50% - 440px));font-size:.78rem;color:rgba(255,255,255,.7);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:color .2s;z-index:2}
+.back-link:hover{color:#fff}
+
+/* ARTICLE BODY */
+article{max-width:780px;margin:0 auto;padding:4rem 2rem 5rem}
+article > section{margin-bottom:3.5rem}
+article h2{font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:700;color:var(--primary);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--accent-soft);line-height:1.4}
+article h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin:2rem 0 .8rem;display:flex;align-items:center;gap:.6rem}
+article h3 .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--accent);color:#fff;border-radius:50%;font-size:.82rem;font-weight:700;flex-shrink:0}
+article h4{font-size:.95rem;font-weight:700;color:var(--primary);margin:1.2rem 0 .4rem}
+article p{font-size:.92rem;line-height:1.8;color:var(--text);margin-bottom:1rem}
+article p.muted{color:var(--light-text);font-size:.86rem}
+article a{color:var(--primary-light);text-decoration:underline;text-decoration-color:rgba(108,196,176,.4);text-underline-offset:3px;transition:all .2s}
+article a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+article ul,article ol{padding-left:1.4rem;margin-bottom:1rem}
+article ul li,article ol li{font-size:.92rem;line-height:1.8;margin-bottom:.3rem}
+article strong{color:var(--primary);font-weight:700}
+article code{background:var(--primary);color:#fff;font-weight:700;padding:.15rem .65rem;border-radius:6px;font-size:.9em;letter-spacing:.5px;font-family:'jf-openhuninn','Noto Sans TC',sans-serif;margin:0 .1rem;box-shadow:0 1px 4px rgba(43,106,124,.18)}
+.highlight-warn{color:#B84A3A;background:#FBEDE9;font-weight:700;padding:.08rem .45rem;border-radius:4px}
+.example-line{background:var(--accent-soft);border-left:3px solid var(--accent);padding:.8rem 1.2rem;border-radius:0 10px 10px 0;margin:1rem 0;font-size:1rem;line-height:1.8}
+.example-line .ex-label{display:inline-block;font-size:.82rem;font-weight:700;color:#fff;background:var(--primary);letter-spacing:1px;padding:.3rem .75rem;border-radius:6px;margin-right:.8rem;vertical-align:middle;box-shadow:0 1px 4px rgba(43,106,124,.2)}
+
+/* STORY 創作緣由 */
+.story-card{background:#fff;border-radius:var(--radius);padding:1.6rem 1.8rem;box-shadow:var(--card-shadow);border-left:4px solid var(--accent);margin-bottom:0}
+.story-card p:last-child{margin-bottom:0}
+
+/* ROUTE PICKER */
+.route-picker{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.4rem 0 2rem}
+@media(max-width:640px){.route-picker{grid-template-columns:1fr}}
+.route-card{background:#fff;border-radius:var(--radius);padding:1.4rem;box-shadow:var(--card-shadow);border:1.5px solid transparent;text-decoration:none;color:inherit;transition:all .2s;display:flex;flex-direction:column;gap:.4rem}
+.route-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(43,106,124,.1)}
+.route-card .route-tag{font-size:.7rem;font-weight:700;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase}
+.route-card .route-title{font-size:1rem;font-weight:700;color:var(--primary);text-decoration:none;border:none;padding:0}
+.route-card .route-desc{font-size:.82rem;color:var(--light-text);line-height:1.65}
+.route-card .route-arrow{margin-top:auto;padding-top:.6rem;font-size:.78rem;color:var(--primary-light);font-weight:600}
+
+/* TIPS / 備註 */
+.tip-box{background:var(--warn-soft);border-radius:12px;padding:1.3rem 1.5rem;margin:1.2rem 0;border-left:4px solid var(--warn)}
+.tip-box .tip-label{font-size:1rem;font-weight:700;letter-spacing:.5px;color:var(--warn);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.tip-box > p{font-size:.86rem;color:var(--text);margin-bottom:.5rem;line-height:1.75}
+.tip-box > p:last-child{margin-bottom:0}
+.tip-item{margin-bottom:1.1rem}
+.tip-item:last-child{margin-bottom:0}
+.tip-head{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:.45rem;display:flex;align-items:center;gap:.6rem;line-height:1.4}
+.tip-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--warn);color:#fff;border-radius:50%;font-size:.78rem;font-weight:700;flex-shrink:0;box-shadow:0 1px 4px rgba(200,149,109,.35)}
+.tip-item p{padding-left:2.2rem;font-size:.94rem;color:var(--text);line-height:1.85;margin-bottom:.55rem}
+.tip-item p:last-child{margin-bottom:0}
+.tip-example{font-size:.88rem!important;color:var(--light-text)!important;line-height:1.8!important}
+.tip-example .ex-tag{display:inline-block;font-size:.82rem;font-weight:700;color:var(--warn);background:rgba(200,149,109,.18);padding:.22rem .7rem;border-radius:5px;margin-right:.6rem;letter-spacing:.5px}
+
+.info-box{background:var(--accent-soft);border-radius:12px;padding:1.1rem 1.3rem;margin:1rem 0;font-size:.86rem;line-height:1.75}
+.info-box strong{color:var(--primary)}
+
+/* IMAGES */
+.img-figure{margin:1rem 0 1.6rem;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);border:1px solid rgba(43,106,124,.06)}
+.img-figure img{width:100%;height:auto;display:block;cursor:zoom-in}
+.img-figure figcaption{font-size:.78rem;color:var(--light-text);text-align:center;padding:.6rem 1rem;background:#FAFAF7;border-top:1px solid var(--gray)}
+.img-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0 1.6rem}
+@media(max-width:640px){.img-grid-2{grid-template-columns:1fr}}
+.img-grid-2 .img-figure{margin:0}
+
+/* RESULT BOX */
+.result-box{background:#fff;border-radius:10px;padding:.9rem 1.1rem;margin:.8rem 0;border-left:3px solid var(--primary-light);font-size:.88rem;font-family:Inter,monospace;line-height:1.7}
+.result-box .label{font-size:.7rem;font-weight:700;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-right:.6rem}
+
+/* FORM CHECKLIST */
+.form-spec{background:#fff;border-radius:14px;margin:1rem 0;box-shadow:var(--card-shadow);border:1px solid rgba(43,106,124,.08);overflow:hidden}
+.form-head{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);color:#fff;padding:.85rem 1.3rem;display:flex;align-items:center;gap:.7rem;font-weight:700;font-size:.94rem;letter-spacing:.5px}
+.form-head .form-side-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:.74rem;font-weight:700;padding:.22rem .6rem;border-radius:5px;letter-spacing:1.5px}
+.form-spec dl{display:grid;grid-template-columns:auto 1fr;gap:0 1.4rem;font-size:.88rem;padding:.4rem 1.4rem 1rem}
+.form-spec dt,.form-spec dd{padding:.7rem 0;border-bottom:1px dashed rgba(43,106,124,.12);min-height:1rem}
+.form-spec dl > dt:nth-last-of-type(1),.form-spec dl > dd:last-child{border-bottom:none}
+.form-spec dt{color:var(--primary);font-weight:600;letter-spacing:.5px}
+.form-spec dd{color:var(--text);line-height:1.7}
+.form-note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:.7rem 1.1rem;border-radius:0 8px 8px 0;margin:.8rem 0 1.2rem;font-size:.84rem;color:var(--text);line-height:1.7}
+.form-note strong{color:var(--primary)}
+
+/* TABLE */
+.table-controls{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-bottom:1rem}
+.table-search{flex:1;min-width:200px;padding:.55rem .9rem;border:1.5px solid var(--gray);border-radius:8px;font-size:.86rem;font-family:inherit;background:#fff;color:var(--text);outline:none;transition:border-color .2s}
+.table-search:focus{border-color:var(--accent)}
+.table-count{font-size:.78rem;color:var(--light-text)}
+.lookup-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);font-size:.86rem}
+.lookup-table thead{background:var(--primary);color:#fff}
+.lookup-table th{padding:.7rem 1rem;text-align:left;font-weight:600;font-size:.82rem;letter-spacing:.5px}
+.lookup-table td{padding:.55rem 1rem;border-top:1px solid var(--gray)}
+.lookup-table tbody tr:hover{background:var(--accent-soft)}
+.lookup-table tbody tr.hidden{display:none}
+.lookup-toggle{background:#fff;border-radius:12px;box-shadow:var(--card-shadow);border:1px solid rgba(43,106,124,.08);overflow:hidden;margin:.8rem 0 1rem}
+.lookup-toggle summary{cursor:pointer;list-style:none;padding:1rem 1.3rem;font-weight:700;color:var(--primary);font-size:.95rem;display:flex;align-items:center;justify-content:space-between;transition:background .2s}
+.lookup-toggle summary:hover{background:var(--accent-soft)}
+.lookup-toggle summary::-webkit-details-marker{display:none}
+.lookup-toggle summary::after{content:'＋';font-size:1.3rem;font-weight:300;color:var(--accent);transition:transform .25s}
+.lookup-toggle[open] summary::after{content:'－'}
+.lookup-toggle[open] summary{border-bottom:1px solid var(--gray)}
+.lookup-toggle .toggle-body{padding:1.2rem 1.3rem 1.4rem}
+.lookup-toggle .toggle-hint{font-size:.78rem;color:var(--light-text);font-weight:400;letter-spacing:0;margin-left:.5rem}
+.lookup-table .cat-tag{display:inline-block;font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;letter-spacing:.5px}
+.cat-cho{background:#E8F0F5;color:#2B6A7C}
+.cat-daan{background:#F5EBE0;color:#A4602F}
+.cat-pitou{background:#EBF1E5;color:#5B7A3A}
+
+/* LICENSE */
+.license-card{background:#fff;border-radius:var(--radius);padding:1.5rem 1.7rem;box-shadow:var(--card-shadow);margin-top:1rem}
+.license-card h3{margin-top:0}
+.license-card p{font-size:.9rem;line-height:1.8}
+.cite-wrap{position:relative;margin-top:.6rem}
+.cite-block{background:var(--gray);border-radius:8px;padding:.85rem 2.6rem .85rem 1rem;font-family:Inter,monospace;font-size:.82rem;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-all}
+.cite-copy{position:absolute;top:.55rem;right:.55rem;background:rgba(255,255,255,.85);border:1px solid rgba(43,106,124,.15);border-radius:6px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--primary);transition:all .2s;padding:0}
+.cite-copy:hover{background:#fff;border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.cite-copy svg{width:16px;height:16px}
+
+/* AUTHOR BIO */
+.author-card{background:#fff;border-radius:var(--radius);padding:1.7rem 1.9rem;box-shadow:var(--card-shadow);margin-top:1.5rem;border-left:3px solid var(--accent)}
+.author-card .author-name{font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:.7rem;letter-spacing:.5px}
+.author-card p{font-size:.92rem;line-height:1.85;color:var(--text);margin-bottom:.45rem}
+.author-card .author-edu{color:var(--light-text);font-size:.88rem}
+.author-card .author-fields{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.author-card .field-tag{display:inline-block;font-size:.78rem;font-weight:600;color:var(--primary);background:var(--accent-soft);padding:.25rem .7rem;border-radius:5px;border:1px solid rgba(108,196,176,.3)}
+
+/* CONTACT ICONS (privacy-aware) */
+.contact-icons{display:flex;gap:.7rem;margin-top:1rem;flex-wrap:wrap}
+.icon-link{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;border:1.5px solid rgba(43,106,124,.18);border-radius:10px;background:#fff;color:var(--primary);font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit;transition:all .2s}
+.icon-link:hover{background:var(--accent-soft);border-color:var(--accent);transform:translateY(-1px)}
+.icon-link svg{width:18px;height:18px;flex-shrink:0}
+.copy-toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--primary);color:#fff;padding:.7rem 1.3rem;border-radius:8px;font-size:.85rem;font-weight:600;opacity:0;visibility:hidden;transition:all .25s;z-index:6000;box-shadow:0 4px 16px rgba(43,106,124,.3)}
+.copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:5000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.lightbox.show{display:flex}
+.lightbox img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:8px}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.15)}
+
+/* TOC (sticky on desktop) */
+.toc-wrap{display:none}
+@media(min-width:1100px){
+  .toc-wrap{display:block;position:fixed;top:80px;right:max(2rem,calc(50% - 580px));width:200px;max-height:calc(100vh - 120px);overflow-y:auto;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-radius:12px;padding:1.1rem 1.2rem;font-size:.78rem;z-index:50;border:1px solid rgba(43,106,124,.08)}
+  .toc-wrap .toc-title{font-size:.92rem;font-weight:700;letter-spacing:.5px;color:var(--primary);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1.5px solid var(--accent-soft)}
+  .toc-wrap a{display:block;color:var(--light-text);text-decoration:none;padding:.3rem 0;line-height:1.5;border-left:2px solid transparent;padding-left:.7rem;transition:all .2s}
+  .toc-wrap a:hover,.toc-wrap a.active{color:var(--primary);border-left-color:var(--accent)}
+  .toc-wrap a.indent{padding-left:1.4rem;font-size:.74rem}
+}
+
+footer{background:#2B6A7C;color:rgba(255,255,255,.6);text-align:center;padding:3rem 2rem;font-size:.78rem;border-top:1px solid rgba(108,196,176,.2)}
+footer a{color:var(--accent);text-decoration:none}
+footer p{margin-bottom:.4rem}
+
+.scroll-top{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;box-shadow:0 2px 12px rgba(43,106,124,.25);z-index:99}
+.scroll-top.show{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--primary-light);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Wei-Shan Chen</div>
+</nav>
+
+<!-- HERO -->
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="kicker">Field Notes · 研究筆記</div>
+    <h1>調閱日治時期土地資料的經驗分享</h1>
+    <div class="article-meta">
+      <span>陳薇珊 Wei-Shan Chen</span>
+      <span>·</span>
+      <span>原始整理：2024，資料更新：2026</span>
+      <span>·</span>
+      <span>以臺北市為範例</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOC (desktop sidebar) -->
+<aside class="toc-wrap" id="toc">
+  <div class="toc-title">本文導覽</div>
+  <a href="#why">關於這份筆記</a>
+  <a href="#pick-route">該走哪一條路？</a>
+  <a href="#route-a">路徑 A · 從日治地號</a>
+  <a href="#route-a-step1" class="indent">Step 1 轉光復後地籍</a>
+  <a href="#route-a-step2" class="indent">Step 2 查行政區</a>
+  <a href="#route-a-step3" class="indent">Step 3 填申請書</a>
+  <a href="#route-a-step4" class="indent">Step 4 跑地政事務所</a>
+  <a href="#route-b">路徑 B · 從現代地址</a>
+  <a href="#tips">備註總整理</a>
+  <a href="#lookup">臺北市町名／大字與段名對照表</a>
+  <a href="#license">授權與引用</a>
+  <a href="#about-author">關於作者</a>
+</aside>
+
+<article>
+
+  <!-- 關於這份筆記 -->
+  <section id="why">
+    <h2>關於這份筆記</h2>
+    <div class="story-card">
+      <p>這份筆記是我在寫碩士論文（日治時期衛戍地諸部隊之空間規劃研究―以臺南永久兵營為例）期間，為了調閱土地資料、被地政人員打槍過好幾次後，從失敗中整理出來的精華。</p>
+      <p>最近發現其實好像很多人並不知道如何正確調閱到日治時期的土地資料，所以決定公開分享經驗，希望可以幫到有需要幫忙的人！</p>
+      <p>本份筆記是根據臺北市的土地資訊作為範例，我想應該適用於調閱大部分的縣市土地資料🤔 但如果大家在調閱過程中有遇到任何問題，也歡迎一起討論～（我在調閱臺南土地資料初期，也遇到很多一開始調不到資料，但後來發現問題後又順利調取資料的情形）</p>
+    </div>
+  </section>
+
+  <!-- 路徑選擇 -->
+  <section id="pick-route">
+    <h2>該走哪一條路？</h2>
+    <p>調閱日治時期地籍資料前，先確認你手上有什麼資訊。</p>
+    <div class="route-picker">
+      <a href="#route-a" class="route-card">
+        <span class="route-tag">Route A</span>
+        <span class="route-title">從日治時期地號出發</span>
+        <span class="route-desc">手上已有日治時期的「町名 + 地號」（例如從老地契、戶籍資料、舊文件查到）</span>
+        <span class="route-arrow">前往路徑 A →</span>
+      </a>
+      <a href="#route-b" class="route-card">
+        <span class="route-tag">Route B</span>
+        <span class="route-title">從現代地址出發</span>
+        <span class="route-desc">只知道現在的門牌（路名、巷弄號），想往前回推到日治時期</span>
+        <span class="route-arrow">前往路徑 B →</span>
+      </a>
+    </div>
+    <p class="muted">無論走哪條路，最後都會在 <strong>Step 3</strong> 匯流到同一份「地籍謄本及相關資料申請書」，再到 <strong>Step 4</strong> 跑地政事務所領件。</p>
+  </section>
+
+  <!-- =============== ROUTE A =============== -->
+  <section id="route-a">
+    <h2>路徑 A · 從日治時期地號出發</h2>
+    <div class="info-box"><strong>範例：</strong>幸町 147-54 地號（日治時期臺北市內地號）</div>
+
+    <h3 id="route-a-step1"><span class="step-num">1</span>將日治時期地籍轉換為光復後的地籍</h3>
+
+    <h4>① 確定「町」轉換後的「段名」</h4>
+    <p>戰後地政重新劃段時，<strong>段名通常會直接沿用町名</strong>，但若町名本身具日本色彩（如：明治、大正、旭、兒玉…），就會被改掉變得完全不一樣（例如可能改成「中正段」之類）。所以遇到這種町名時，需要再進一步確認戰後 <span class="highlight-warn">最一開始</span> 的地段名稱 — 因為後來可能又被合併或重劃過好幾次，只有 <span class="highlight-warn">最一開始</span> 那次劃段才對得回日治時期的町。</p>
+    <div class="example-line"><span class="ex-label">本階段範例</span>幸町 → <code>幸段</code></div>
+    <p>其他臺北市町名請查文末「<a href="#lookup">附錄對照表</a>」。</p>
+
+    <h4>② 至內政部新舊地號查詢系統</h4>
+    <ol>
+      <li>進入 <a href="https://www.land.moi.gov.tw/chhtml/landnoqry/51" target="_blank" rel="noopener">內政部新舊地號查詢系統</a>，點選「臺北市」進入<a href="https://w3.land.gov.taipei/Plugin/Query/RuadiLbn" target="_blank" rel="noopener">臺北市地政局新舊地號查詢系統</a>。</li>
+      <li>選擇「土地」，在「搜尋段小段」欄位輸入：<code>幸段</code>。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-1.png" alt="臺北市新舊地號查詢系統首頁">
+      <figcaption>① 進入查詢系統 → 選擇土地 → 輸入段小段名「幸段」</figcaption>
+    </figure>
+    <ol start="3">
+      <li>在段小段下拉中選擇正確的段小段名：<code>幸段</code>（本案例的「幸町」沒有「丁目」，所以選沒有小段的「幸段」即可。如果你的町有「幾丁目」，請改選對應的「幾小段」）。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-2.png" alt="選擇段小段名「幸段」">
+      <figcaption>② 在段小段下拉中選正確的「幸段」</figcaption>
+    </figure>
+    <ol start="4">
+      <li>輸入地號 <code>147-54</code>，按「查詢」。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-3.png" alt="輸入地號 147-54 並查詢">
+      <figcaption>③ 輸入地號後按「查詢」</figcaption>
+    </figure>
+    <ol start="5">
+      <li>點選「<strong>新舊地建號</strong>」分頁，下方欄位即出現新舊地建號對照 — <strong>除了舊地號以外，新地號也一併記下來</strong>（見 Step 2 後的備註）。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-4.png" alt="點選「新舊地建號」分頁，查詢結果顯示新舊地號對照">
+      <figcaption>④ 點「新舊地建號」分頁 → 同時顯示新／舊地號</figcaption>
+    </figure>
+    <div class="result-box">
+      <span class="label">舊地號</span>幸段 0147-0054 地號<br>
+      <span class="label">新地號</span>臨沂段一小段 0334-0000
+    </div>
+
+    <h3 id="route-a-step2"><span class="step-num">2</span>查詢地籍所在的行政區域</h3>
+    <p>申請書要填現在的行政區，所以用上一步取得的<strong>新地段名「臨沂段一小段」</strong>查現代行政區。</p>
+    <ol>
+      <li>進入 <a href="https://maps.nlsc.gov.tw/T09/mapshow.action" target="_blank" rel="noopener">國土測繪圖資服務雲</a></li>
+      <li>在搜尋欄位輸入「臨沂段」</li>
+      <li>得到行政區域：<code>中正區</code>（這就是後面填申請書要用的「鄉鎮市區」）</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-5.jpg" alt="國土測繪圖資服務雲查詢「臨沂段」所在行政區">
+      <figcaption>用新地段名查現代行政區</figcaption>
+    </figure>
+
+    <div class="tip-box">
+      <div class="tip-label">📌 備註</div>
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">1</span>網站查無資料 ≠ 真的調不到</h4>
+        <p>有些地號在網站上查不到，但實際到地政事務所卻能調得到資料 — 即使網站查詢失敗，還是值得跑現場試試看。</p>
+        <p class="tip-example"><span class="ex-tag">舉例</span>假設你查「幸段 147-54」時網站顯示「無此筆地號資料」，還是可以拿這筆地號到地政事務所試申請，仍有機會調到。</p>
+      </div>
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">2</span>同時記新地號當備援</h4>
+        <p>有些地政人員不熟悉舊地號的查詢流程（這兩個系統好像不太一樣，對他們程序比較繁瑣），所以可以記下新地號請他們幫忙試試看。</p>
+        <p class="tip-example"><span class="ex-tag">舉例</span>當時我也有遇過舊地號查不到資料，但剛好遇到願意幫忙進一步轉換地號的地政人員，所以在我提供新地號之後就有順利調閱到資料。</p>
+      </div>
+    </div>
+
+    <h3 id="route-a-step3"><span class="step-num">3</span>填寫「地籍謄本及相關資料申請書」</h3>
+    <p>可至 <a href="https://landp.kcg.gov.tw/News_Content/2863/12551/" target="_blank" rel="noopener">「<strong>地籍謄本及相關資料申請書</strong>」下載頁面</a> 取得表格，或現場到地政事務所索取。按照下方表格的填寫方式填寫：</p>
+    <div class="form-note"><strong>備註：</strong>這份申請書在全臺灣應該都長一樣（本文使用的是高雄市政府地政局的檔案下載區）。如果上方連結失效，可以用「<strong>地籍謄本及相關資料申請書</strong>」當關鍵字搜尋，應該就能在各地方政府的地政網站找到一樣的表格。</div>
+    <ul>
+      <li>項目選「<strong>六、其他</strong>」</li>
+      <li>底下欄位寫「<strong>日據時期登記簿</strong>」及「<strong>台帳</strong>」</li>
+    </ul>
+
+    <div class="form-spec">
+      <div class="form-head"><span class="form-side-badge">正面</span>申請標示</div>
+      <dl>
+        <dt>鄉鎮市區</dt><dd>臺北市中正區</dd>
+        <dt>段</dt><dd>幸段</dd>
+        <dt>小段</dt><dd>（空白：因本筆土地於日治時期無「幾丁目」，故無小段）</dd>
+        <dt>地號</dt><dd>147-54</dd>
+        <dt>申請份數</dt><dd>1</dd>
+      </dl>
+    </div>
+    <figure class="img-figure">
+      <img src="./images/step-6.jpg" alt="申請書正面填寫範例">
+      <figcaption>申請書正面填寫範例</figcaption>
+    </figure>
+
+    <div class="form-spec">
+      <div class="form-head"><span class="form-side-badge">背面</span>申請人資訊</div>
+      <dl>
+        <dt>申請人</dt><dd>自己姓名</dd>
+        <dt>統一編號</dt><dd>身分證字號</dd>
+        <dt>申請用途</dt><dd>勾選「自行參考」</dd>
+        <dt>聯絡電話、住址</dt><dd>據實填寫</dd>
+        <dt>簽章、領件簽章</dt><dd>可以先簽好</dd>
+      </dl>
+    </div>
+    <figure class="img-figure">
+      <img src="./images/step-7.jpg" alt="申請書背面填寫範例">
+      <figcaption>申請書背面填寫範例</figcaption>
+    </figure>
+
+    <h3 id="route-a-step4"><span class="step-num">4</span>到地政事務所申請謄本</h3>
+    <div class="tip-box">
+      <div class="tip-label">📌 備註</div>
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">!</span>心理準備</h4>
+        <p>因為土地可能陸續被切割過，舊地號也許都有變動或是並沒有登錄在系統之中，所以申請土地資料 <span class="highlight-warn">不一定都能成功調閱到</span>，但記得把網站查不到的也帶去現場試試看。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== ROUTE B =============== -->
+  <section id="route-b">
+    <h2>路徑 B · 從現代地址出發</h2>
+    <div class="info-box"><strong>範例：</strong>臺北市大安區永康街 7 巷 10 號</div>
+
+    <h3><span class="step-num">1</span>根據現代地址查詢現代地籍</h3>
+    <ol>
+      <li>進入 <a href="https://easymap.land.moi.gov.tw/R02/Index" target="_blank" rel="noopener">地籍圖資網路便民服務系統</a></li>
+      <li>選擇「門牌」分頁，輸入地址，點擊查詢</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-8.png" alt="地籍圖資網路便民服務系統 - 門牌查詢">
+      <figcaption>① 選擇「門牌」 → 輸入地址</figcaption>
+    </figure>
+    <p>記下查詢到的現代地號：</p>
+    <div class="result-box">
+      <span class="label">現代地號</span>臺北市大安區金華段一小段 142 地號
+    </div>
+    <figure class="img-figure">
+      <img src="./images/step-9.png" alt="查詢結果顯示現代地號">
+      <figcaption>② 查得現代地號「金華段一小段 142」</figcaption>
+    </figure>
+
+    <h3><span class="step-num">2</span>將現在地號轉換成舊地號</h3>
+    <p>流程跟路徑 A 第 1 步類似 — 進<a href="https://w3.land.gov.taipei/Plugin/Query/RuadiLbn" target="_blank" rel="noopener">臺北市地政局新舊地號查詢系統</a>，但這次是用「現代地段」反查「日治舊地段」。</p>
+    <ol>
+      <li>選擇「土地」，在「搜尋段小段」欄位輸入：<code>金華段</code>。</li>
+      <li>在段小段下拉中選「<code>金華段一小段</code>」。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-10.png" alt="選擇金華段一小段">
+      <figcaption>① 輸入現代段名後選正確的「金華段一小段」</figcaption>
+    </figure>
+    <ol start="3">
+      <li>輸入地號 <code>142</code>，按「查詢」。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-11.png" alt="輸入地號 142 並查詢">
+      <figcaption>② 輸入地號後按「查詢」</figcaption>
+    </figure>
+    <ol start="4">
+      <li>點選「<strong>新舊地建號</strong>」分頁，記下舊地號。</li>
+    </ol>
+    <figure class="img-figure">
+      <img src="./images/step-12.png" alt="點選「新舊地建號」分頁，查得舊地號">
+      <figcaption>③ 點「新舊地建號」分頁 → 查得舊地號</figcaption>
+    </figure>
+    <div class="result-box">
+      <span class="label">舊地號</span>東門段 0278-0006 地號
+    </div>
+
+    <h3><span class="step-num">3</span>填寫「地籍謄本及相關資料申請書」</h3>
+    <p>同樣可至 <a href="https://landp.kcg.gov.tw/News_Content/2863/12551/" target="_blank" rel="noopener">「<strong>地籍謄本及相關資料申請書</strong>」下載頁面</a> 取得表格。按照下方表格的填寫方式填寫，勾選方式同路徑 A：<strong>項目選「六、其他」</strong>，底下寫「日據時期登記簿」及「台帳」。</p>
+
+    <div class="form-spec">
+      <div class="form-head"><span class="form-side-badge">正面</span>申請標示</div>
+      <dl>
+        <dt>鄉鎮市區</dt><dd>臺北市大安區</dd>
+        <dt>段</dt><dd>東門段</dd>
+        <dt>小段</dt><dd>（空白）</dd>
+        <dt>地號</dt><dd>0278-0006</dd>
+        <dt>申請份數</dt><dd>1</dd>
+      </dl>
+    </div>
+    <figure class="img-figure">
+      <img src="./images/step-13.jpg" alt="申請書正面填寫範例（路徑 B）">
+      <figcaption>申請書正面填寫範例</figcaption>
+    </figure>
+
+    <div class="form-spec">
+      <div class="form-head"><span class="form-side-badge">背面</span>申請人資訊</div>
+      <dl>
+        <dt>申請人</dt><dd>自己姓名</dd>
+        <dt>統一編號</dt><dd>身分證字號</dd>
+        <dt>申請用途</dt><dd>勾選「自行參考」</dd>
+        <dt>聯絡電話、住址、簽章</dt><dd>據實填寫</dd>
+      </dl>
+    </div>
+    <figure class="img-figure">
+      <img src="./images/step-14.jpg" alt="申請書背面填寫範例（路徑 B）">
+      <figcaption>申請書背面填寫範例</figcaption>
+    </figure>
+
+    <h3><span class="step-num">4</span>到地政事務所申請謄本</h3>
+    <p>同路徑 A，到地政事務所申請即可（注意事項可參考 <a href="#route-a-step4">路徑 A Step 4 的備註</a>）。</p>
+  </section>
+
+  <!-- 備註總整理 -->
+  <section id="tips">
+    <h2>備註總整理</h2>
+    <div class="tip-box">
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">1</span>網站查無資料 ≠ 真的調不到</h4>
+        <p>有些地號在網站上查不到資料，但實際到地政事務所卻調得到 — 即使網站查詢失敗，還是值得跑現場試試看。</p>
+      </div>
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">2</span>同時記新地號當備援</h4>
+        <p>有些地政人員不熟悉用舊地號查詢的流程（這兩個系統好像不太一樣，對他們程序比較繁瑣），所以可以記下新地號請他們幫忙試試看。</p>
+      </div>
+      <div class="tip-item">
+        <h4 class="tip-head"><span class="tip-num">!</span>心理準備</h4>
+        <p>因為土地可能陸續被切割、合併過，舊地號也許都有變動或並沒有登錄在系統之中，所以申請日治時期土地資料 <span class="highlight-warn">不一定都能成功</span>。但前置功課做齊，至少能把成功率拉到最高。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKUP TABLE -->
+  <section id="lookup">
+    <h2>附錄｜臺北市町名／大字與段名對照表</h2>
+    <p>戰後地政劃段時的對照清單，共 <strong>78 筆</strong>。點擊下方標題展開，可用搜尋框過濾。</p>
+
+    <details class="lookup-toggle">
+      <summary>展開對照表 <span class="toggle-hint">（共 78 筆）</span></summary>
+      <div class="toggle-body">
+    <div class="table-controls">
+      <input type="text" id="tableSearch" class="table-search" placeholder="🔍 搜尋町名／段名，例如：幸、東門、大正…" aria-label="搜尋對照表">
+      <span class="table-count" id="tableCount">顯示 78 筆</span>
+    </div>
+
+    <table class="lookup-table" id="lookupTable">
+      <thead>
+        <tr>
+          <th style="width:34%">町名／大字</th>
+          <th style="width:34%">段名</th>
+          <th style="width:32%">類別</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 町（一般） -->
+        <tr><td>乃木町</td><td>小南門段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>東園町</td><td>東園段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>榮町</td><td>衡陽段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>三橋町</td><td>三橋段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大和町</td><td>撫台段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>建成町</td><td>建成段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>京町</td><td>博愛段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>上奎府町</td><td>上奎府段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>本町</td><td>府前段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大龍峒町</td><td>大龍峒段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>表町</td><td>館前段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>太平町</td><td>太平段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>明石町</td><td>府後段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>永樂町</td><td>永樂段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>築地町</td><td>築地段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>港町</td><td>港段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>西門町</td><td>西門段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>下奎府町</td><td>下奎府段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>壽町</td><td>壽段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>日新町</td><td>日新段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>新起町</td><td>新起段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大橋町</td><td>大橋段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>新富町</td><td>新富段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>泉町</td><td>泉段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>八甲町</td><td>八甲段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>河合町</td><td>河合段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>樺山町</td><td>東橋段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>佐久間町</td><td>建國段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>旭町</td><td>營邊段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>末廣町</td><td>城西段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>錦町</td><td>錦安段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>文武町</td><td>文武段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>兒玉町</td><td>城南段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>書院町</td><td>書院段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>川端町</td><td>螢橋段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>北門町</td><td>北門段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>水道町</td><td>水源段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>幸町</td><td>幸段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>濱町</td><td>江濱段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>東門町</td><td>東門段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>元園町</td><td>原園段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>福住町</td><td>福住段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>若竹町</td><td>翠竹段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>新榮町</td><td>新榮段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>入船町</td><td>歡慈段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>千歲町</td><td>千歲段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>有明町</td><td>有明段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>南門町</td><td>南門段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>崛江町</td><td>石路段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>龍口町</td><td>龍口段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>馬場町</td><td>崁頂段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>古亭町</td><td>古亭段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大正町</td><td>正大段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>富田町</td><td>富田段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>御成町</td><td>詔安段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>蓬萊町</td><td>蓬萊段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>宮前町</td><td>牛埔段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>老松町</td><td>老松段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大宮町</td><td>劍潭段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>圓山町</td><td>圓山段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>龍山寺町</td><td>龍山寺段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>松山</td><td>松山段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>綠町</td><td>綠段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>興雅</td><td>興雅段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>柳町</td><td>柳段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>大直</td><td>大直段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>西園町</td><td>西園段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <tr><td>中庄</td><td>中庄段</td><td><span class="cat-tag cat-cho">町</span></td></tr>
+        <!-- 大安大字 -->
+        <tr><td>十二甲</td><td>十二甲段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <tr><td>西新庄</td><td>西新庄段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <tr><td>坡心</td><td>坡心段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <tr><td>中崙</td><td>中崙段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <tr><td>龍安坡</td><td>龍安坡段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <tr><td>朱厝崙</td><td>朱厝崙段</td><td><span class="cat-tag cat-daan">大安·大字</span></td></tr>
+        <!-- 下埤頭大字 -->
+        <tr><td>下埤頭</td><td>下埤頭段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>六張犁</td><td>六張犁段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>東勢</td><td>東勢段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>下內埔</td><td>下內埔段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>中坡</td><td>中坡段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>上埤頭</td><td>上埤頭段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>五分埔</td><td>五分埔段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>上塔攸</td><td>上塔攸段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>三張犁</td><td>三張犁段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>下塔悠</td><td>下塔悠段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>頂東勢</td><td>頂東勢段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+        <tr><td>舊里族</td><td>舊里族段</td><td><span class="cat-tag cat-pitou">下埤頭·大字</span></td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:.8rem">資料來源：<a href="https://www.landagent.com.tw/land_history/la_1.htm" target="_blank" rel="noopener">landagent.com.tw</a>。其他縣市請查各地方政府地政局網站，或在內政部新舊地號查詢系統先試。</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- LICENSE -->
+  <section id="license">
+    <h2>授權與引用</h2>
+    <div class="license-card">
+      <p>本文歡迎自由分享，引用時請標示作者及連結。</p>
+      <div class="cite-wrap">
+        <button type="button" class="cite-copy" id="copyCite" aria-label="複製引用">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+        <div class="cite-block" id="citeText">陳薇珊（2026）。調閱日治時期土地資料的經驗分享。
+取自 https://wschtw.com/notes/japanese-era-land-records</div>
+      </div>
+    </div>
+
+    <div class="license-card">
+      <h3>有問題或想補充？</h3>
+      <p>這份筆記主要是根據我調閱臺南市土地的經驗整理（但以臺北市的土地為範例呈現）。如果你在其他縣市有調閱過、或發現流程有變動／我有寫錯的地方，歡迎來信告訴我，我會更新這份筆記。</p>
+      <div class="contact-icons">
+        <a href="#" id="mailLink" class="icon-link" aria-label="寄送 Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span>寄信給我</span>
+        </a>
+        <button type="button" id="copyMail" class="icon-link" aria-label="複製信箱">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span>複製信箱</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="copy-toast" id="copyToast">已複製信箱 ✓</div>
+
+  <!-- 關於作者 -->
+  <section id="about-author">
+    <h2>關於作者</h2>
+    <div class="author-card">
+      <div class="author-name">陳薇珊 Wei-Shan Chen</div>
+      <p class="author-edu">國立臺北藝術大學 建築與文化資產研究所 碩士</p>
+      <p class="author-edu">國立成功大學 都市計劃學系</p>
+      <div class="author-fields">
+        <span class="field-tag">GIS 空間分析</span>
+        <span class="field-tag">歷史圖資套繪</span>
+        <span class="field-tag">都市規劃</span>
+        <span class="field-tag">文化資產</span>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <button class="lightbox-close" aria-label="關閉">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂端">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<footer>
+  <p>&copy; 2026 陳薇珊 Wei-Shan Chen｜本筆記採 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant" target="_blank" rel="noopener">CC BY 4.0</a> 授權</p>
+</footer>
+
+<script>
+// Nav scroll state
+const nav=document.querySelector('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+  document.querySelector('.scroll-top').classList.toggle('show',window.scrollY>400);
+});
+
+// Fade-in observer (threshold:0 to handle sections taller than viewport)
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:0,rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('article > section').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// Table search
+const search=document.getElementById('tableSearch');
+const rows=document.querySelectorAll('#lookupTable tbody tr');
+const countEl=document.getElementById('tableCount');
+const totalRows=rows.length;
+search.addEventListener('input',e=>{
+  const q=e.target.value.trim().toLowerCase();
+  let visible=0;
+  rows.forEach(r=>{
+    const t=r.textContent.toLowerCase();
+    const match=!q||t.includes(q);
+    r.classList.toggle('hidden',!match);
+    if(match)visible++;
+  });
+  countEl.textContent=q?`找到 ${visible} 筆 / 共 ${totalRows} 筆`:`顯示 ${totalRows} 筆`;
+});
+
+// Lightbox for images
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
+document.querySelectorAll('.img-figure img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    lbImg.src=img.src;
+    lbImg.alt=img.alt;
+    lb.classList.add('show');
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')lb.classList.remove('show');
+});
+
+// Email contact (obfuscated to avoid scrapers)
+const _e=atob('YXNhbi5ob3NoaW5vQGdtYWlsLmNvbQ==');
+const mailLink=document.getElementById('mailLink');
+const copyBtn=document.getElementById('copyMail');
+const toast=document.getElementById('copyToast');
+if(mailLink)mailLink.addEventListener('click',ev=>{ev.preventDefault();window.location.href='mailto:'+_e});
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+function copyText(text,msg){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>showToast(msg)).catch(()=>fallbackCopy(text,msg));
+  }else fallbackCopy(text,msg);
+}
+function fallbackCopy(text,msg){
+  const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');showToast(msg)}catch(e){}
+  document.body.removeChild(ta);
+}
+if(copyBtn)copyBtn.addEventListener('click',()=>copyText(_e,'已複製信箱 ✓'));
+
+// 複製引用
+const copyCiteBtn=document.getElementById('copyCite');
+const citeTextEl=document.getElementById('citeText');
+if(copyCiteBtn&&citeTextEl)copyCiteBtn.addEventListener('click',()=>copyText(citeTextEl.textContent,'已複製引用 ✓'));
+
+// TOC active state on scroll
+const tocLinks=document.querySelectorAll('.toc-wrap a');
+const tocTargets=Array.from(tocLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll',()=>{
+  let current='';
+  tocTargets.forEach(t=>{if(window.scrollY>=t.offsetTop-120)current='#'+t.id});
+  tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===current));
+});
+</script>
+</body>
+</html>

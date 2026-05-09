@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="white">
+
+  <!-- ============ TOP-LEFT ORGANIC CLUSTER ============ -->
+  <g opacity=".88">
+
+    <!-- Organic block A — wedge-shaped block along curved street -->
+    <polygon points="-30,-20 45,-15 50,45 -25,55"/>
+    <polygon points="55,-18 120,-25 128,30 60,40"/>
+    <polygon points="-35,62 52,52 58,110 -28,120"/>
+    <polygon points="65,46 135,35 142,95 72,108"/>
+    <rect x="140" y="-28" width="48" height="58" transform="rotate(-8,164,1)"/>
+    <rect x="145" y="38" width="42" height="55" transform="rotate(-5,166,65)"/>
+    <polygon points="-40,128 55,118 48,185 -45,190"/>
+    <polygon points="62,115 140,102 148,168 68,178"/>
+
+    <!-- Organic block B — along diagonal street -->
+    <polygon points="200,-35 275,-50 285,5 210,18"/>
+    <polygon points="215,25 290,12 298,72 222,82"/>
+    <polygon points="195,90 268,78 275,138 200,148"/>
+    <rect x="290" y="-48" width="52" height="50" transform="rotate(-15,316,-23)"/>
+    <rect x="300" y="15" width="45" height="55" transform="rotate(-12,322,42)"/>
+    <polygon points="288,78 358,62 365,125 295,138"/>
+    <polygon points="210,155 280,145 288,205 216,212"/>
+    <polygon points="292,142 365,130 372,192 298,202"/>
+
+    <!-- Organic block C — triangular block -->
+    <polygon points="380,-45 460,-60 470,-5 395,12"/>
+    <polygon points="390,18 468,-2 478,55 400,68"/>
+    <polygon points="375,75 455,60 462,125 385,138"/>
+    <polygon points="470,-58 545,-68 552,-10 480,2"/>
+    <polygon points="482,5 555,-5 562,55 490,65"/>
+    <polygon points="468,72 548,58 555,122 478,135"/>
+    <rect x="560" y="-65" width="45" height="52" transform="rotate(-18,582,-39)"/>
+    <rect x="565" y="0" width="40" height="50" transform="rotate(-15,585,25)"/>
+    <rect x="558" y="58" width="48" height="55" transform="rotate(-12,582,85)"/>
+
+    <!-- Organic block D — curved row following arc -->
+    <polygon points="100,200 168,185 178,240 110,252"/>
+    <polygon points="60,215 95,208 105,262 68,268"/>
+    <polygon points="-20,230 55,218 62,275 -12,285"/>
+    <polygon points="180,182 250,168 258,228 188,240"/>
+    <polygon points="112,258 178,248 185,305 120,315"/>
+    <polygon points="62,275 108,265 115,322 70,330"/>
+    <polygon points="-25,292 58,280 65,338 -18,348"/>
+    <polygon points="190,245 260,232 268,292 198,305"/>
+
+    <!-- Organic block E — irregular cluster -->
+    <polygon points="265,175 340,158 352,218 275,232"/>
+    <polygon points="280,238 355,225 362,282 288,295"/>
+    <polygon points="270,302 345,288 352,348 278,358"/>
+    <polygon points="355,155 425,140 435,202 365,215"/>
+    <polygon points="365,222 438,208 445,268 372,282"/>
+    <polygon points="358,288 430,275 438,335 365,348"/>
+    <polygon points="440,138 510,122 520,185 450,198"/>
+    <polygon points="448,205 520,190 528,252 456,265"/>
+    <polygon points="442,272 515,258 522,318 450,332"/>
+
+    <!-- Organic block F — dense narrow alley cluster -->
+    <polygon points="120,340 185,328 192,385 128,395"/>
+    <polygon points="195,325 262,312 270,372 202,385"/>
+    <polygon points="130,402 195,392 202,445 138,455"/>
+    <polygon points="205,390 272,378 280,435 212,448"/>
+    <polygon points="-30,355 60,342 68,400 -22,412"/>
+    <polygon points="-35,418 62,408 70,465 -28,475"/>
+    <polygon points="70,350 118,338 125,398 78,408"/>
+    <polygon points="75,415 125,405 132,460 82,470"/>
+
+    <!-- Organic block G — tapering towards center -->
+    <polygon points="280,355 348,342 355,395 288,408"/>
+    <polygon points="290,415 358,402 365,455 298,465"/>
+    <polygon points="360,340 428,325 436,382 368,395"/>
+    <polygon points="368,402 435,388 442,442 376,455"/>
+    <polygon points="440,322 505,308 512,365 448,378"/>
+    <polygon points="448,385 512,372 518,425 455,438"/>
+
+    <!-- Extension H — scattered buildings fading out -->
+    <polygon points="520,180 580,168 588,222 528,232"/>
+    <polygon points="530,240 588,228 595,278 538,290"/>
+    <polygon points="522,298 578,285 585,335 530,348"/>
+    <polygon points="590,165 648,152 655,208 598,220"/>
+    <polygon points="598,228 652,215 658,268 605,280"/>
+    <rect x="595" y="285" width="45" height="48" transform="rotate(-10,617,309)"/>
+    <rect x="660" y="150" width="40" height="45" transform="rotate(-12,680,172)"/>
+    <rect x="665" y="205" width="38" height="42" transform="rotate(-8,684,226)"/>
+
+    <!-- Fading edge buildings -->
+    <rect x="520" y="355" width="38" height="42" transform="rotate(-8,539,376)" opacity=".6"/>
+    <rect x="565" y="345" width="35" height="38" transform="rotate(-6,582,364)" opacity=".5"/>
+    <rect x="610" y="290" width="32" height="36" transform="rotate(-5,626,308)" opacity=".4"/>
+    <rect x="700" y="160" width="30" height="32" transform="rotate(-10,715,176)" opacity=".3"/>
+    <rect x="700" y="220" width="28" height="30" transform="rotate(-6,714,235)" opacity=".25"/>
+  </g>
+
+  <!-- ============ BOTTOM-RIGHT ORGANIC CLUSTER ============ -->
+  <g opacity=".88">
+
+    <!-- Organic block I — main curved avenue -->
+    <polygon points="1920,1080 1855,1075 1848,1018 1915,1012"/>
+    <polygon points="1845,1078 1778,1072 1772,1015 1838,1008"/>
+    <polygon points="1768,1075 1702,1068 1695,1010 1762,1002"/>
+    <polygon points="1692,1070 1628,1062 1622,1005 1688,998"/>
+    <polygon points="1918,1005 1852,998 1845,940 1912,935"/>
+    <polygon points="1842,1000 1775,992 1768,935 1835,928"/>
+    <polygon points="1765,995 1700,988 1693,930 1758,922"/>
+    <polygon points="1690,990 1625,982 1618,925 1685,918"/>
+
+    <!-- Organic block J — second row up, offset -->
+    <polygon points="1920,928 1858,920 1850,862 1918,855"/>
+    <polygon points="1848,922 1782,915 1775,858 1842,850"/>
+    <polygon points="1772,918 1708,910 1700,852 1765,845"/>
+    <polygon points="1698,912 1635,905 1628,848 1695,840"/>
+    <polygon points="1625,908 1562,900 1555,842 1622,835"/>
+    <polygon points="1920,848 1860,840 1852,782 1916,775"/>
+    <polygon points="1848,842 1785,835 1778,778 1845,770"/>
+    <polygon points="1775,838 1712,830 1705,772 1770,765"/>
+    <polygon points="1702,832 1640,825 1632,768 1698,760"/>
+    <polygon points="1630,828 1568,820 1560,762 1625,755"/>
+
+    <!-- Organic block K — diagonal cluster upper-left of main -->
+    <polygon points="1558,840 1495,832 1488,775 1552,768"/>
+    <polygon points="1485,835 1425,828 1418,772 1480,765"/>
+    <polygon points="1552,765 1492,758 1485,702 1548,695"/>
+    <polygon points="1485,760 1425,752 1418,698 1480,690"/>
+    <polygon points="1920,768 1862,762 1855,705 1915,698"/>
+    <polygon points="1852,765 1790,758 1782,702 1848,695"/>
+    <polygon points="1780,760 1718,752 1710,698 1775,690"/>
+    <polygon points="1708,755 1648,748 1640,692 1705,685"/>
+    <polygon points="1638,750 1578,742 1570,688 1635,680"/>
+
+    <!-- Organic block L — curved side street -->
+    <polygon points="1568,682 1508,675 1500,620 1562,612"/>
+    <polygon points="1498,678 1440,670 1432,618 1495,608"/>
+    <polygon points="1560,608 1502,600 1495,548 1555,540"/>
+    <polygon points="1495,602 1438,595 1430,542 1490,535"/>
+    <polygon points="1635,678 1575,670 1568,615 1632,608"/>
+    <polygon points="1628,605 1570,598 1562,545 1625,538"/>
+    <polygon points="1710,685 1650,678 1642,625 1708,618"/>
+    <polygon points="1705,615 1648,608 1640,555 1702,548"/>
+    <polygon points="1785,690 1725,682 1718,628 1782,620"/>
+    <polygon points="1780,618 1722,610 1715,558 1778,550"/>
+
+    <!-- Fading edge buildings -->
+    <polygon points="1432,672 1378,665 1372,618 1428,610" opacity=".6"/>
+    <polygon points="1425,608 1375,602 1368,555 1420,548" opacity=".5"/>
+    <rect x="1370" y="660" width="35" height="40" transform="rotate(8,1387,680)" opacity=".45"/>
+    <rect x="1365" y="545" width="32" height="38" transform="rotate(6,1381,564)" opacity=".35"/>
+    <polygon points="1860,695 1920,688 1920,745 1858,750" opacity=".7"/>
+    <polygon points="1855,620 1920,612 1920,668 1852,675" opacity=".65"/>
+    <polygon points="1850,548 1920,540 1920,598 1848,605" opacity=".55"/>
+  </g>
+
+  <!-- ============ SPARSE SCATTERED BUILDINGS (edges) ============ -->
+  <g opacity=".35">
+    <!-- Top edge scattered -->
+    <rect x="750" y="-15" width="28" height="32" transform="rotate(-5,764,1)"/>
+    <rect x="790" y="-8" width="25" height="28" transform="rotate(3,802,6)"/>
+    <rect x="720" y="15" width="22" height="25" transform="rotate(-8,731,27)"/>
+
+    <!-- Bottom edge scattered -->
+    <rect x="550" y="1040" width="28" height="30" transform="rotate(4,564,1055)"/>
+    <rect x="590" y="1048" width="25" height="26" transform="rotate(-3,602,1061)"/>
+    <rect x="510" y="1055" width="22" height="24" transform="rotate(6,521,1067)"/>
+
+    <!-- Left edge -->
+    <rect x="-15" y="550" width="26" height="30" transform="rotate(-4,-2,565)"/>
+    <rect x="-8" y="600" width="24" height="28" transform="rotate(5,4,614)"/>
+
+    <!-- Right edge -->
+    <rect x="1905" y="450" width="24" height="28" transform="rotate(3,1917,464)"/>
+    <rect x="1908" y="500" width="22" height="26" transform="rotate(-4,1919,513)"/>
+  </g>
+
+</svg>
